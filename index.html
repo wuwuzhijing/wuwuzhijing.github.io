@@ -320,6 +320,17 @@
 
           
           
+             <span id="/2018/10/08/git使用（二）/" class="leancloud_visitors" data-flag-title="Git使用（二）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -342,8 +353,7 @@
       
         
           
-            <p>[TOC]</p>
-<h1 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h1><h2 id="建立和切换到分支"><a href="#建立和切换到分支" class="headerlink" title="建立和切换到分支"></a>建立和切换到分支</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b branchName1  <span class="comment">//建立分支，并切换到分支</span></span><br><span class="line">git checkout -b branchName2  <span class="comment">//建立分支，并切换到分支</span></span><br><span class="line">git checkout master       <span class="comment">//切换回主干</span></span><br><span class="line"></span><br><span class="line">git merge branchName1      <span class="comment">//将分支修改内容合并到主干上</span></span><br><span class="line">git branch -d branchName1  <span class="comment">//branchName的内容已经合并到分支，没用了，删掉</span></span><br><span class="line"></span><br><span class="line">git branch branchName2  <span class="comment">//切换到分支2，继续修改。分支1的只合并到了主干，与分支2没有关系</span></span><br><span class="line">git merge master        <span class="comment">//将提交到主干的分支1的内容合并到分支2上</span></span><br></pre></td></tr></table></figure>
+            <h1 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h1><h2 id="建立和切换到分支"><a href="#建立和切换到分支" class="headerlink" title="建立和切换到分支"></a>建立和切换到分支</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b branchName1  <span class="comment">//建立分支，并切换到分支</span></span><br><span class="line">git checkout -b branchName2  <span class="comment">//建立分支，并切换到分支</span></span><br><span class="line">git checkout master       <span class="comment">//切换回主干</span></span><br><span class="line"></span><br><span class="line">git merge branchName1      <span class="comment">//将分支修改内容合并到主干上</span></span><br><span class="line">git branch -d branchName1  <span class="comment">//branchName的内容已经合并到分支，没用了，删掉</span></span><br><span class="line"></span><br><span class="line">git branch branchName2  <span class="comment">//切换到分支2，继续修改。分支1的只合并到了主干，与分支2没有关系</span></span><br><span class="line">git merge master        <span class="comment">//将提交到主干的分支1的内容合并到分支2上</span></span><br></pre></td></tr></table></figure>
 <p><strong>问题一</strong><br>暂存区或工作目录里没有提交的修改可能会和即将切换（检出）的分支产生冲突，导致无法切换分支。<br><strong>解决</strong><br>stashing<br>commit amending</p>
 <h2 id="分支操作-1"><a href="#分支操作-1" class="headerlink" title="分支操作"></a>分支操作</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git branch -v                    <span class="comment">//查看分支最后一次提交</span></span><br><span class="line">git --merged/--no-merged         <span class="comment">//查看已经合并到/未合并到当前分支的分支</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">git push --<span class="keyword">delete</span> origin branchName3 <span class="comment">//删除远程分支</span></span><br><span class="line">git branch -m branchName3  branchNewName3  <span class="comment">//重命名本地分支</span></span><br><span class="line">git push origin branchNewName3             <span class="comment">//新命名分支提交到远程</span></span><br><span class="line"><span class="comment">//如遇冲突，查看github里setting里的默认分支是哪个</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> $分支名/tag名/远程分支名    <span class="comment">//查看分支log</span></span><br><span class="line">git show-branch               <span class="comment">//查看分支log</span></span><br></pre></td></tr></table></figure>
 <h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1>
@@ -464,6 +474,17 @@
           
 
           
+          
+             <span id="/2018/05/02/git使用（一）/" class="leancloud_visitors" data-flag-title="Git使用（一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -619,6 +640,17 @@
           
 
           
+          
+             <span id="/2018/04/30/test/" class="leancloud_visitors" data-flag-title="测试文档">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -957,6 +989,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aV2N1abyBOg7EJBK4JMIGg4T-gzGzoHsz", "dzdCNuHPWRTyJ4NWMGHHWyQ8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
