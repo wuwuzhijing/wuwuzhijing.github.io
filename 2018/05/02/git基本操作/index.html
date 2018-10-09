@@ -83,7 +83,7 @@
 <meta name="keywords" content="git,操作,log,分支">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git基本操作">
-<meta property="og:url" content="http://www.degomy.com/2018/05/02/git基本操作/index.html">
+<meta property="og:url" content="https://www.degomy.com/2018/05/02/git基本操作/index.html">
 <meta property="og:site_name" content="思考即武器">
 <meta property="og:description" content="文件操作 新增文件1234git add [file]   //将文件增加到本地版本库git pull       //从远程获取最新版本并合并到本地git commit     //将修改从暂存区提交到本地git push       //从本地版本库的分支推送到远程服务器上对应的分支 删除文件1234git rm file    //删除本地库的文件git pullgit commitgit">
 <meta property="og:locale" content="zh-ch">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://www.degomy.com/2018/05/02/git基本操作/"/>
+  <link rel="canonical" href="https://www.degomy.com/2018/05/02/git基本操作/"/>
 
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.degomy.com/2018/05/02/git基本操作/">
+    <link itemprop="mainEntityOfPage" href="https://www.degomy.com/2018/05/02/git基本操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pollo">
@@ -317,6 +317,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/02/git基本操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/02/git基本操作/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -463,6 +473,9 @@
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
   
   
@@ -752,6 +765,28 @@
 
 
 
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'b6f40d9ebea3773da30c',
+        appKey: '0b5c4aa57b12dc451fea68e3ce20c7b6fd1ad3d9',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
 
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
@@ -889,6 +924,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
