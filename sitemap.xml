@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.degomy.com/about/index.html</loc>
+    
+    <lastmod>2018-10-10T01:13:37.619Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.degomy.com/2018/10/09/caffe%E5%85%A5%E9%97%A8/</loc>
     
     <lastmod>2018-10-09T09:53:36.948Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://www.degomy.com/categories/index.html</loc>
     
     <lastmod>2018-10-09T04:49:47.692Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.degomy.com/about/index.html</loc>
-    
-    <lastmod>2018-10-09T04:46:44.569Z</lastmod>
     
   </url>
   
