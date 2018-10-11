@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://www.degomy.com/images/caffe/caffe-2.png">
 <meta property="og:image" content="https://www.degomy.com/images/caffe/caffe-3.png">
 <meta property="og:image" content="https://www.degomy.com/images/caffe/caffe-4.png">
-<meta property="og:updated_time" content="2018-10-10T06:05:17.464Z">
+<meta property="og:updated_time" content="2018-10-11T09:30:39.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Caffe入门(工程篇)">
 <meta name="twitter:description" content="caffe的安装步骤（Windows)环境要求必须组件/工具：    名称 版本     C/C++编译器 VS2015或2013的编译器即可（cl.exe)   Cmake &amp;gt;=3.4    可选组件/工具：    名称 版本     python的pycaffe接口 Anaconda python2.7或者3.5 x64   matlab的matcaffe接口    CUDA 7.5或8">
@@ -429,15 +429,15 @@
 </code></pre><h1 id="图像分类识别训练测试mnist数据集"><a href="#图像分类识别训练测试mnist数据集" class="headerlink" title="图像分类识别训练测试mnist数据集"></a>图像分类识别训练测试mnist数据集</h1><h2 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h2><p><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">mnist数据集</a></p>
 <h2 id="转换文件-leveldb或者lmdb格式"><a href="#转换文件-leveldb或者lmdb格式" class="headerlink" title="转换文件(leveldb或者lmdb格式)"></a>转换文件(leveldb或者lmdb格式)</h2><p>基本命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##转换训练数据</span></span><br><span class="line">..\Release\convert_mnist_data.exe --backend=lmdb .\train-images.idx3-ubyte .\train-labels.idx1-ubyte .\mnist_train_lmdb</span><br><span class="line"><span class="comment">##转换测试数据</span></span><br><span class="line">..\Release\convert_mnist_data.exe --backend=lmdb .\train-images.idx3-ubyte .\train-labels.idx1-ubyte .\mnist_train_lmdb</span><br></pre></td></tr></table></figure>
-<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><p>1、将两个转换好的数据库文件夹拷贝至\examples\mnist。</p>
+<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><h3 id="训练步骤"><a href="#训练步骤" class="headerlink" title="训练步骤"></a>训练步骤</h3><p>1、将两个转换好的数据库文件夹拷贝至\examples\mnist。</p>
 <p>2、训练<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\scripts\build\tools\Debug\caffe-d.exe train --solver=.\examples\mnist\lenet_solver.prototxt</span><br></pre></td></tr></table></figure></p>
 <p>没报错，训练如常进行、结束。</p>
 <p>3、训练结果<br>在文件caffe\examples\mnist\lenet_iter_10000.caffemodel中。脚本里设置了5000次出一次结果，因而也有文件lenet_iter_5000.caffemodel。<br><img src="\images\caffe\lenet_iter.png" alt="&#39;训练结果&#39;"></p>
 <p>model文件存放了程序迭代若干次后网络的参数。</p>
 <p>4、测试训练结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">caffe/bin/caffe.exe<span class="string">" test --model=examples/mnist/lenet_solver.prototxt </span></span><br><span class="line"><span class="string">-weight examples/mnist/lenet_iter_10000.caffemodel</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="mnist解释"><a href="#mnist解释" class="headerlink" title="mnist解释"></a>mnist解释</h3><blockquote>
+<blockquote>
 </blockquote>
-<p>examples里的mnist是LeNet用于手写数字识别的例子。<br>训练过程：<br><img src="\images\caffe\caffe-1.png" alt="&#39;训练过程&#39;"></p>
+<p>examples里的mnist是LeNet用于手写数字识别的例子。<br>训练过程图示：<br><img src="\images\caffe\caffe-1.png" alt="&#39;训练过程&#39;"></p>
 <p>测试过程：<br><img src="\images\caffe\caffe-2.png" alt="&#39;测试过程&#39;"></p>
 <h2 id="实测"><a href="#实测" class="headerlink" title="实测"></a>实测</h2><h3 id="计算模型均值"><a href="#计算模型均值" class="headerlink" title="计算模型均值"></a>计算模型均值</h3><ul>
 <li>配置<br><img src="\images\caffe\caffe-3.png" alt="&#39;配置&#39;"></li>
@@ -447,8 +447,9 @@
 </li>
 </ul>
 <blockquote>
-<p><strong>计算结果</strong><br><img src="\images\caffe\caffe-4.png" alt="&#39;计算结果&#39;"></p>
+<p><strong>计算结果</strong></p>
 </blockquote>
+<p><img src="\images\caffe\caffe-4.png" alt="&#39;计算结果&#39;"></p>
 
       
     </div>
@@ -674,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#caffe的安装步骤（Windows"><span class="nav-number">1.</span> <span class="nav-text">caffe的安装步骤（Windows)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境要求"><span class="nav-number">1.0.1.</span> <span class="nav-text">环境要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译caffe"><span class="nav-number">1.0.2.</span> <span class="nav-text">编译caffe</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图像分类识别训练测试mnist数据集"><span class="nav-number">2.</span> <span class="nav-text">图像分类识别训练测试mnist数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载数据集"><span class="nav-number">2.1.</span> <span class="nav-text">下载数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转换文件-leveldb或者lmdb格式"><span class="nav-number">2.2.</span> <span class="nav-text">转换文件(leveldb或者lmdb格式)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">2.3.</span> <span class="nav-text">训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mnist解释"><span class="nav-number">2.3.1.</span> <span class="nav-text">mnist解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实测"><span class="nav-number">2.4.</span> <span class="nav-text">实测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算模型均值"><span class="nav-number">2.4.1.</span> <span class="nav-text">计算模型均值</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#caffe的安装步骤（Windows"><span class="nav-number">1.</span> <span class="nav-text">caffe的安装步骤（Windows)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境要求"><span class="nav-number">1.0.1.</span> <span class="nav-text">环境要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译caffe"><span class="nav-number">1.0.2.</span> <span class="nav-text">编译caffe</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图像分类识别训练测试mnist数据集"><span class="nav-number">2.</span> <span class="nav-text">图像分类识别训练测试mnist数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载数据集"><span class="nav-number">2.1.</span> <span class="nav-text">下载数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转换文件-leveldb或者lmdb格式"><span class="nav-number">2.2.</span> <span class="nav-text">转换文件(leveldb或者lmdb格式)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">2.3.</span> <span class="nav-text">训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#训练步骤"><span class="nav-number">2.3.1.</span> <span class="nav-text">训练步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实测"><span class="nav-number">2.4.</span> <span class="nav-text">实测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算模型均值"><span class="nav-number">2.4.1.</span> <span class="nav-text">计算模型均值</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
