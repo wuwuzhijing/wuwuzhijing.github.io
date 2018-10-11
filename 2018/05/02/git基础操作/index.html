@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="文件操作 新增文件1234git add [file]   //将文件增加到本地版本库git pull       //从远程获取最新版本并合并到本地git commit     //将修改从暂存区提交到本地git push       //从本地版本库的分支推送到远程服务器上对应的分支 删除文件1234git rm file    //删除本地库的文件git pullgit commitgit">
+<meta name="description" content="配置 配置文件的目录以及对应的级别：    配置文件名称 配置文件目录 对应修改命令 优先级     版本库 ~.git\config git config –local 1   全局 C:\Users\username\gitconfig git config –global 2        系统 \%Git%\mingw64\etc\gitconfig git config –system">
 <meta name="keywords" content="git,操作,log,分支">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git基础操作">
 <meta property="og:url" content="https://www.degomy.com/2018/05/02/git基础操作/index.html">
 <meta property="og:site_name" content="思考即武器">
-<meta property="og:description" content="文件操作 新增文件1234git add [file]   //将文件增加到本地版本库git pull       //从远程获取最新版本并合并到本地git commit     //将修改从暂存区提交到本地git push       //从本地版本库的分支推送到远程服务器上对应的分支 删除文件1234git rm file    //删除本地库的文件git pullgit commitgit">
+<meta property="og:description" content="配置 配置文件的目录以及对应的级别：    配置文件名称 配置文件目录 对应修改命令 优先级     版本库 ~.git\config git config –local 1   全局 C:\Users\username\gitconfig git config –global 2        系统 \%Git%\mingw64\etc\gitconfig git config –system">
 <meta property="og:locale" content="zh-ch">
-<meta property="og:updated_time" content="2018-10-09T08:42:22.169Z">
+<meta property="og:updated_time" content="2018-10-11T09:02:31.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git基础操作">
-<meta name="twitter:description" content="文件操作 新增文件1234git add [file]   //将文件增加到本地版本库git pull       //从远程获取最新版本并合并到本地git commit     //将修改从暂存区提交到本地git push       //从本地版本库的分支推送到远程服务器上对应的分支 删除文件1234git rm file    //删除本地库的文件git pullgit commitgit">
+<meta name="twitter:description" content="配置 配置文件的目录以及对应的级别：    配置文件名称 配置文件目录 对应修改命令 优先级     版本库 ~.git\config git config –local 1   全局 C:\Users\username\gitconfig git config –global 2        系统 \%Git%\mingw64\etc\gitconfig git config –system">
 
 
 
@@ -363,7 +363,40 @@
       
 
       
-        <h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><hr>
+        <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><hr>
+<p>配置文件的目录以及对应的级别：</p>
+<table>
+<thead>
+<tr>
+<th>配置文件名称</th>
+<th>配置文件目录</th>
+<th>对应修改命令</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>版本库</td>
+<td>~.git\config</td>
+<td>git config –local</td>
+<td>1</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>C:\Users\username\gitconfig</td>
+<td>git config –global</td>
+<td>2     </td>
+</tr>
+<tr>
+<td>系统</td>
+<td>\%Git%\mingw64\etc\gitconfig</td>
+<td>git config –system</td>
+<td>3    </td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --system core.editor &lt;path of specified editor&gt; <span class="comment">//设置配置项</span></span><br><span class="line">git config --system --<span class="built_in">list</span> <span class="comment">//查看配置列表(如果没有指定第一个参数，默认为--global)</span></span><br><span class="line">git config --show-origin core.editor(e.g.)  <span class="comment">//查看某个配置项所在配置文件的源路径</span></span><br></pre></td></tr></table></figure>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><hr>
 <h2 id="新增文件"><a href="#新增文件" class="headerlink" title="新增文件"></a>新增文件</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add [file]   <span class="comment">//将文件增加到本地版本库</span></span><br><span class="line">git pull       <span class="comment">//从远程获取最新版本并合并到本地</span></span><br><span class="line">git commit     <span class="comment">//将修改从暂存区提交到本地</span></span><br><span class="line">git push       <span class="comment">//从本地版本库的分支推送到远程服务器上对应的分支</span></span><br></pre></td></tr></table></figure>
 <h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git rm file    <span class="comment">//删除本地库的文件</span></span><br><span class="line">git pull</span><br><span class="line">git commit</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 <h2 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git status   <span class="comment">//检查修改文件列表</span></span><br><span class="line">git add -u   <span class="comment">//添加修改过的文件到修改库</span></span><br><span class="line">git status   <span class="comment">//再次检测</span></span><br><span class="line">git commit   <span class="comment">//将修改从暂存区提交到本地版本库</span></span><br><span class="line">git pull     <span class="comment">//远程获取最新版本并合并到本地</span></span><br><span class="line">git push     <span class="comment">//从本地版本库的分支推送到远程服务器上对应的分支</span></span><br></pre></td></tr></table></figure>
@@ -381,9 +414,26 @@
 <h2 id="放弃本地修改"><a href="#放弃本地修改" class="headerlink" title="放弃本地修改"></a>放弃本地修改</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash      <span class="comment">//所有未提交的修改暂存到stash里</span></span><br><span class="line">git stash pop  <span class="comment">//恢复stash里保存的修改</span></span><br><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
 <h2 id="恢复本地删除的文件夹"><a href="#恢复本地删除的文件夹" class="headerlink" title="恢复本地删除的文件夹"></a>恢复本地删除的文件夹</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//连续执行下面命令两次</span></span><br><span class="line">git checkout -f -q -- vdUShape/</span><br></pre></td></tr></table></figure>
 <h2 id="忽略本地特定文件并上传"><a href="#忽略本地特定文件并上传" class="headerlink" title="忽略本地特定文件并上传"></a>忽略本地特定文件并上传</h2><p>在根目录下的.gitignore文件定义需要忽略的文件。定义示例：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># data</span></span><br><span class="line">grays.txt</span><br><span class="line"></span><br><span class="line"><span class="meta"># bin files</span></span><br><span class="line">propsTest.exe</span><br><span class="line"></span><br><span class="line"><span class="meta"># images</span></span><br><span class="line">result.jpg</span><br></pre></td></tr></table></figure></p>
-<h1 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b branchName1  <span class="comment">//建立分支，并切换到分支</span></span><br><span class="line">git checkout -b branchName2  <span class="comment">//建立分支，并切换到分支</span></span><br><span class="line">git checkout master       <span class="comment">//切换回主干</span></span><br><span class="line"></span><br><span class="line">git merge branchName1      <span class="comment">//将分支修改内容合并到主干上</span></span><br><span class="line">git branch -d branchName1  <span class="comment">//branchName的内容已经合并到分支，没用了，删掉</span></span><br><span class="line"></span><br><span class="line">git branch branchName2  <span class="comment">//切换到分支2，继续修改。分支1的只合并到了主干，与分支2没有关系</span></span><br><span class="line">git merge master        <span class="comment">//将提交到主干的分支1的内容合并到分支2上</span></span><br></pre></td></tr></table></figure>
-<p><strong>问题一</strong><br>暂存区或工作目录里没有提交的修改可能会和即将切换（检出）的分支产生冲突，导致无法切换分支。<br><strong>解决</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stashing</span><br><span class="line">commit amending</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git branch -v                    <span class="comment">//查看分支最后一次提交</span></span><br><span class="line">git --merged/--no-merged         <span class="comment">//查看已经合并到/未合并到当前分支的分支</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">git push --<span class="keyword">delete</span> origin branchName3 <span class="comment">//删除远程分支</span></span><br><span class="line">git branch -m branchName3  branchNewName3  <span class="comment">//重命名本地分支</span></span><br><span class="line">git push origin branchNewName3             <span class="comment">//新命名分支提交到远程</span></span><br><span class="line"><span class="comment">//如遇冲突，查看github里setting里的默认分支是哪个</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> $分支名/tag名/远程分支名    <span class="comment">//查看分支log</span></span><br><span class="line">git show-branch               <span class="comment">//查看分支log</span></span><br></pre></td></tr></table></figure>
+<h1 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分支的建立、切换、合并和删除</span></span><br><span class="line">git checkout -b branchName1                   <span class="comment">//建立分支，并切换到分支</span></span><br><span class="line">git checkout -b branchName2                   <span class="comment">//建立分支，并切换到分支</span></span><br><span class="line">git checkout master                           <span class="comment">//切换回主干</span></span><br><span class="line">								             </span><br><span class="line">git merge branchName1                         <span class="comment">//将分支修改内容合并到主干上</span></span><br><span class="line">git branch -d branchName1                     <span class="comment">//branchName的内容已经合并到分支，没用了，删掉</span></span><br><span class="line">								             </span><br><span class="line">git branch branchName2                        <span class="comment">//切换到分支2，继续修改。分支1的只合并到了主干，与分支2没有关系</span></span><br><span class="line">git merge master                              <span class="comment">//将提交到主干的分支1的内容合并到分支2上</span></span><br><span class="line">								             </span><br><span class="line"><span class="comment">//分支信息查看                                </span></span><br><span class="line">git branch -v                                 <span class="comment">//查看分支最后一次提交</span></span><br><span class="line">git --merged/--no-merged                      <span class="comment">//查看已经合并到/未合并到当前分支的分支</span></span><br><span class="line">git <span class="built_in">log</span> $分支名/tag名/远程分支名                <span class="comment">//查看分支log</span></span><br><span class="line">git show-branch                               <span class="comment">//查看分支log</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//远程分支操作    </span></span><br><span class="line">git push --<span class="keyword">delete</span> origin branchName3          <span class="comment">//删除远程分支</span></span><br><span class="line">git branch -m branchName3  branchNewName3     <span class="comment">//重命名本地分支</span></span><br><span class="line">git push origin branchNewName3                <span class="comment">//新命名分支提交到远程</span></span><br><span class="line"><span class="comment">//如遇冲突，查看github里setting里的默认分支是哪个</span></span><br></pre></td></tr></table></figure>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="一、分支冲突"><a href="#一、分支冲突" class="headerlink" title="一、分支冲突"></a>一、分支冲突</h2><ul>
+<li>问题描述：<br>暂存区或工作目录里没有提交的修改可能会和即将切换（检出）的分支产生冲突，导致无法切换分支。</li>
+<li>解决方法：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stashing</span><br><span class="line">commit amending</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、HEAD游离"><a href="#二、HEAD游离" class="headerlink" title="二、HEAD游离"></a>二、HEAD游离</h2><ul>
+<li>问题描述：<br> checkout到某个分支（比如branch1）的时候，显示<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">error: Your local changes to the following files would be overwritten by checkout:</span><br><span class="line">&lt;文件列表&gt;</span><br><span class="line">Please commit your changes <span class="keyword">or</span> stash them before you <span class="keyword">switch</span> branches.</span><br><span class="line">Aborting</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>查看分支列表，显示：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(HEAD detached at <span class="number">12819b</span>3)</span><br><span class="line">master</span><br><span class="line">branch1</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>解决方法：<pre><code>1、新建分支temp;
+2、checkout到temp;
+3、将temp的修改commit到库上；
+4、checkout到branch1(之前想切换而切换失败的分支)；
+5、将temp合并到branch1;
+6、删除temp分支。
+</code></pre></li>
+</ul>
 
       
     </div>
@@ -540,7 +590,7 @@
               
                 <a href="/archive/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -605,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件操作"><span class="nav-number">1.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新增文件"><span class="nav-number">1.1.</span> <span class="nav-text">新增文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">1.2.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文件"><span class="nav-number">1.3.</span> <span class="nav-text">修改文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#log操作"><span class="nav-number">2.</span> <span class="nav-text">log操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">2.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它命令"><span class="nav-number">2.2.</span> <span class="nav-text">其它命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本操作"><span class="nav-number">3.</span> <span class="nav-text">版本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#回退版本"><span class="nav-number">3.1.</span> <span class="nav-text">回退版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件前后对比"><span class="nav-number">3.2.</span> <span class="nav-text">文件前后对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集成对比工具（kdiff3为例，beyondcompare同理）"><span class="nav-number">3.2.1.</span> <span class="nav-text">集成对比工具（kdiff3为例，beyondcompare同理）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比相关操作"><span class="nav-number">3.2.2.</span> <span class="nav-text">对比相关操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本地文件操作"><span class="nav-number">4.</span> <span class="nav-text">本地文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#放弃本地修改"><span class="nav-number">4.1.</span> <span class="nav-text">放弃本地修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复本地删除的文件夹"><span class="nav-number">4.2.</span> <span class="nav-text">恢复本地删除的文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略本地特定文件并上传"><span class="nav-number">4.3.</span> <span class="nav-text">忽略本地特定文件并上传</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分支操作"><span class="nav-number">5.</span> <span class="nav-text">分支操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件操作"><span class="nav-number">2.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新增文件"><span class="nav-number">2.1.</span> <span class="nav-text">新增文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">2.2.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文件"><span class="nav-number">2.3.</span> <span class="nav-text">修改文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#log操作"><span class="nav-number">3.</span> <span class="nav-text">log操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">3.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它命令"><span class="nav-number">3.2.</span> <span class="nav-text">其它命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本操作"><span class="nav-number">4.</span> <span class="nav-text">版本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#回退版本"><span class="nav-number">4.1.</span> <span class="nav-text">回退版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件前后对比"><span class="nav-number">4.2.</span> <span class="nav-text">文件前后对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集成对比工具（kdiff3为例，beyondcompare同理）"><span class="nav-number">4.2.1.</span> <span class="nav-text">集成对比工具（kdiff3为例，beyondcompare同理）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比相关操作"><span class="nav-number">4.2.2.</span> <span class="nav-text">对比相关操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本地文件操作"><span class="nav-number">5.</span> <span class="nav-text">本地文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#放弃本地修改"><span class="nav-number">5.1.</span> <span class="nav-text">放弃本地修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复本地删除的文件夹"><span class="nav-number">5.2.</span> <span class="nav-text">恢复本地删除的文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略本地特定文件并上传"><span class="nav-number">5.3.</span> <span class="nav-text">忽略本地特定文件并上传</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分支操作"><span class="nav-number">6.</span> <span class="nav-text">分支操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">7.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、分支冲突"><span class="nav-number">7.1.</span> <span class="nav-text">一、分支冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、HEAD游离"><span class="nav-number">7.2.</span> <span class="nav-text">二、HEAD游离</span></a></li></ol></li></ol></div>
             
 
           </div>
