@@ -363,8 +363,15 @@
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/11/git解释篇/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -525,88 +532,45 @@
       
         
           
-            <h1 id="caffe的安装步骤（Windows"><a href="#caffe的安装步骤（Windows" class="headerlink" title="caffe的安装步骤（Windows)"></a>caffe的安装步骤（Windows)</h1><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><p>必须组件/工具：</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>版本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>C/C++编译器</td>
-<td>VS2015或2013的编译器即可（cl.exe)</td>
-</tr>
-<tr>
-<td>Cmake</td>
-<td>&gt;=3.4</td>
-</tr>
-</tbody>
-</table>
-<p>可选组件/工具：</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>版本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>python的pycaffe接口</td>
-<td>Anaconda python2.7或者3.5 x64</td>
-</tr>
-<tr>
-<td>matlab的matcaffe接口</td>
-<td></td>
-</tr>
-<tr>
-<td>CUDA</td>
-<td>7.5或8.0，VS2015的编译器必须配套8.0</td>
-</tr>
-<tr>
-<td>cuDNN</td>
-<td>v5</td>
-</tr>
-</tbody>
-</table>
-<h3 id="编译caffe"><a href="#编译caffe" class="headerlink" title="编译caffe"></a>编译caffe</h3><p>1、下载代码</p>
-<pre><code>git clone ./caffe
-</code></pre><p>2、下载脚本文件</p>
-<pre><code>git checkout windows  //补充下载windows相关脚本
-</code></pre><p>3、修改脚本文件build_win.cmd，主要是配置python版本、路径等等。</p>
-<pre><code>我用的anaconda2（py2.7）, msvc14
-</code></pre><p>4、执行脚本文件，生成解决方案</p>
-<pre><code>scripts\build_win.cmd //在win命令行下执行
-</code></pre><p>5、VS编译caffe。打完收功</p>
-<p>6、备注：</p>
-<pre><code>`prependpath.bat&apos;     //设置path用
-</code></pre><h1 id="图像分类识别训练测试mnist数据集"><a href="#图像分类识别训练测试mnist数据集" class="headerlink" title="图像分类识别训练测试mnist数据集"></a>图像分类识别训练测试mnist数据集</h1><h2 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h2><p><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">mnist数据集</a></p>
-<h2 id="转换文件-leveldb或者lmdb格式"><a href="#转换文件-leveldb或者lmdb格式" class="headerlink" title="转换文件(leveldb或者lmdb格式)"></a>转换文件(leveldb或者lmdb格式)</h2><p>基本命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##转换训练数据</span></span><br><span class="line">..\Release\convert_mnist_data.exe --backend=lmdb .\train-images.idx3-ubyte .\train-labels.idx1-ubyte .\mnist_train_lmdb</span><br><span class="line"><span class="comment">##转换测试数据</span></span><br><span class="line">..\Release\convert_mnist_data.exe --backend=lmdb .\train-images.idx3-ubyte .\train-labels.idx1-ubyte .\mnist_train_lmdb</span><br></pre></td></tr></table></figure>
-<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><p>1、将两个转换好的数据库文件夹拷贝至\examples\mnist。</p>
-<p>2、训练<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\scripts\build\tools\Debug\caffe-d.exe train --solver=.\examples\mnist\lenet_solver.prototxt</span><br></pre></td></tr></table></figure></p>
-<p>没报错，训练如常进行、结束。</p>
-<p>3、训练结果<br>在文件caffe\examples\mnist\lenet_iter_10000.caffemodel中。脚本里设置了5000次出一次结果，因而也有文件lenet_iter_5000.caffemodel。<br><img src="\images\caffe\lenet_iter.png" alt="&#39;训练结果&#39;"></p>
-<p>model文件存放了程序迭代若干次后网络的参数。</p>
-<p>4、测试训练结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">caffe/bin/caffe.exe<span class="string">" test --model=examples/mnist/lenet_solver.prototxt </span></span><br><span class="line"><span class="string">-weight examples/mnist/lenet_iter_10000.caffemodel</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="mnist解释"><a href="#mnist解释" class="headerlink" title="mnist解释"></a>mnist解释</h3><blockquote>
-</blockquote>
-<p>examples里的mnist是LeNet用于手写数字识别的例子。<br>训练过程：<br><img src="\images\caffe\caffe-1.png" alt="&#39;训练过程&#39;"></p>
-<p>测试过程：<br><img src="\images\caffe\caffe-2.png" alt="&#39;测试过程&#39;"></p>
-<h2 id="实测"><a href="#实测" class="headerlink" title="实测"></a>实测</h2><h3 id="计算模型均值"><a href="#计算模型均值" class="headerlink" title="计算模型均值"></a>计算模型均值</h3><ul>
-<li>配置<br><img src="\images\caffe\caffe-3.png" alt="&#39;配置&#39;"></li>
-</ul>
-<ul>
-<li>计算均值<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scripts\build\tools\Release\compute_image_mean.exe mnist_train_lmdb mean.binaryproto --backend=lmdb</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p><strong>计算结果</strong><br><img src="\images\caffe\caffe-4.png" alt="&#39;计算结果&#39;"></p>
-</blockquote>
+          caffe的安装步骤（Windows)环境要求必须组件/工具：
 
-          
+
+
+名称
+版本
+
+
+
+
+C/C++编译器
+VS2015或2013的编译器即可（cl.exe)
+
+
+Cmake
+&gt;=3.4
+
+
+
+可选组件/工具：
+
+
+
+名称
+版本
+
+
+
+
+python的pycaffe接口
+Anaconda py
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/09/caffe入门/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -767,79 +731,40 @@
       
         
           
-            <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><hr>
-<p>配置文件的目录以及对应的级别：</p>
-<table>
-<thead>
-<tr>
-<th>配置文件名称</th>
-<th>配置文件目录</th>
-<th>对应修改命令</th>
-<th>优先级</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>版本库</td>
-<td>~.git\config</td>
-<td>git config –local</td>
-<td>1</td>
-</tr>
-<tr>
-<td>全局</td>
-<td>C:\Users\username\gitconfig</td>
-<td>git config –global</td>
-<td>2     </td>
-</tr>
-<tr>
-<td>系统</td>
-<td>\%Git%\mingw64\etc\gitconfig</td>
-<td>git config –system</td>
-<td>3    </td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --system core.editor &lt;path of specified editor&gt; <span class="comment">//设置配置项</span></span><br><span class="line">git config --system --<span class="built_in">list</span> <span class="comment">//查看配置列表(如果没有指定第一个参数，默认为--global)</span></span><br><span class="line">git config --show-origin core.editor(e.g.)  <span class="comment">//查看某个配置项所在配置文件的源路径</span></span><br></pre></td></tr></table></figure>
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><hr>
-<h2 id="新增文件"><a href="#新增文件" class="headerlink" title="新增文件"></a>新增文件</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add [file]   <span class="comment">//将文件增加到本地版本库</span></span><br><span class="line">git pull       <span class="comment">//从远程获取最新版本并合并到本地</span></span><br><span class="line">git commit     <span class="comment">//将修改从暂存区提交到本地</span></span><br><span class="line">git push       <span class="comment">//从本地版本库的分支推送到远程服务器上对应的分支</span></span><br></pre></td></tr></table></figure>
-<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git rm file    <span class="comment">//删除本地库的文件</span></span><br><span class="line">git pull</span><br><span class="line">git commit</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<h2 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git status   <span class="comment">//检查修改文件列表</span></span><br><span class="line">git add -u   <span class="comment">//添加修改过的文件到修改库</span></span><br><span class="line">git status   <span class="comment">//再次检测</span></span><br><span class="line">git commit   <span class="comment">//将修改从暂存区提交到本地版本库</span></span><br><span class="line">git pull     <span class="comment">//远程获取最新版本并合并到本地</span></span><br><span class="line">git push     <span class="comment">//从本地版本库的分支推送到远程服务器上对应的分支</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>注意</strong>：git commit和git pull的顺序不影响提交的效果。</p>
-</blockquote>
-<h1 id="log操作"><a href="#log操作" class="headerlink" title="log操作"></a>log操作</h1><hr>
-<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span>  <span class="comment">//查看完整log</span></span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline <span class="comment">//每条只显示一行，内容是版本号和修改注释。git的版本号是SHA1计算出来的一长串数字，如附图。</span></span><br><span class="line">git relog <span class="comment">//显示执行的命令历史</span></span><br></pre></td></tr></table></figure>
-<h2 id="其它命令"><a href="#其它命令" class="headerlink" title="其它命令"></a>其它命令</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --oneline --decorate  <span class="comment">//与git log --oneline效果相同</span></span><br></pre></td></tr></table></figure>
-<h1 id="版本操作"><a href="#版本操作" class="headerlink" title="版本操作"></a>版本操作</h1><hr>
-<h2 id="回退版本"><a href="#回退版本" class="headerlink" title="回退版本"></a>回退版本</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^        <span class="comment">//回退到上一版本</span></span><br><span class="line">git reset --hard HEAD^^       <span class="comment">//回退到上上一个版本</span></span><br><span class="line">git reset --hard HEAD~<span class="number">100</span>     <span class="comment">//往前回退100个版本</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//假设查得一个版本号为64b47b2ed2492845c05c36f7bf93b6be313af855,回退到该版本的命令如下</span></span><br><span class="line">git reset --hard <span class="number">64b</span>47b2 <span class="comment">//git 会根据版本号前几位自动查找相应版本</span></span><br><span class="line">git reset --soft [HASH]  <span class="comment">//回退到某个版本，同时也保留本地的修改</span></span><br></pre></td></tr></table></figure>
-<h2 id="文件前后对比"><a href="#文件前后对比" class="headerlink" title="文件前后对比"></a>文件前后对比</h2><h3 id="集成对比工具（kdiff3为例，beyondcompare同理）"><a href="#集成对比工具（kdiff3为例，beyondcompare同理）" class="headerlink" title="集成对比工具（kdiff3为例，beyondcompare同理）"></a>集成对比工具（kdiff3为例，beyondcompare同理）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config --global diff.tool bc4</span><br><span class="line">git config --global difftool.prompt <span class="literal">false</span></span><br><span class="line">git config --global --replace-all difftool.bc4.cmd '"F:\\ProgramFiles\\KDiff3\\kdiff3.exe" "$LOCAL" "$REMOTE"'</span><br><span class="line"></span><br><span class="line">git config --global merge.tool bc4</span><br><span class="line">git config --global mergetool.prompt <span class="literal">false</span></span><br><span class="line">git config --global --replace-all mergetool.bc4.cmd '"F:\\ProgramFiles\\KDiff3\\kdiff3.exe" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'</span><br><span class="line">git config --global mergetool.bc4.trustexitcode <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h3 id="对比相关操作"><a href="#对比相关操作" class="headerlink" title="对比相关操作"></a>对比相关操作</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git difftool [file] <span class="comment">//查看库上文件和本地文件的差异</span></span><br><span class="line">git status          <span class="comment">//查看是否有冲突，【unmerged paths下面都是冲突文件】</span></span><br><span class="line">git mergetool       <span class="comment">//依次打开所有冲突文件，供手动解决</span></span><br></pre></td></tr></table></figure>
-<h1 id="本地文件操作"><a href="#本地文件操作" class="headerlink" title="本地文件操作"></a>本地文件操作</h1><hr>
-<h2 id="放弃本地修改"><a href="#放弃本地修改" class="headerlink" title="放弃本地修改"></a>放弃本地修改</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash      <span class="comment">//所有未提交的修改暂存到stash里</span></span><br><span class="line">git stash pop  <span class="comment">//恢复stash里保存的修改</span></span><br><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
-<h2 id="恢复本地删除的文件夹"><a href="#恢复本地删除的文件夹" class="headerlink" title="恢复本地删除的文件夹"></a>恢复本地删除的文件夹</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//连续执行下面命令两次</span></span><br><span class="line">git checkout -f -q -- vdUShape/</span><br></pre></td></tr></table></figure>
-<h2 id="忽略本地特定文件并上传"><a href="#忽略本地特定文件并上传" class="headerlink" title="忽略本地特定文件并上传"></a>忽略本地特定文件并上传</h2><p>在根目录下的.gitignore文件定义需要忽略的文件。定义示例：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># data</span></span><br><span class="line">grays.txt</span><br><span class="line"></span><br><span class="line"><span class="meta"># bin files</span></span><br><span class="line">propsTest.exe</span><br><span class="line"></span><br><span class="line"><span class="meta"># images</span></span><br><span class="line">result.jpg</span><br></pre></td></tr></table></figure></p>
-<h1 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分支的建立、切换、合并和删除</span></span><br><span class="line">git checkout -b branchName1                   <span class="comment">//建立分支，并切换到分支</span></span><br><span class="line">git checkout -b branchName2                   <span class="comment">//建立分支，并切换到分支</span></span><br><span class="line">git checkout master                           <span class="comment">//切换回主干</span></span><br><span class="line">								             </span><br><span class="line">git merge branchName1                         <span class="comment">//将分支修改内容合并到主干上</span></span><br><span class="line">git branch -d branchName1                     <span class="comment">//branchName的内容已经合并到分支，没用了，删掉</span></span><br><span class="line">								             </span><br><span class="line">git branch branchName2                        <span class="comment">//切换到分支2，继续修改。分支1的只合并到了主干，与分支2没有关系</span></span><br><span class="line">git merge master                              <span class="comment">//将提交到主干的分支1的内容合并到分支2上</span></span><br><span class="line">								             </span><br><span class="line"><span class="comment">//分支信息查看                                </span></span><br><span class="line">git branch -v                                 <span class="comment">//查看分支最后一次提交</span></span><br><span class="line">git --merged/--no-merged                      <span class="comment">//查看已经合并到/未合并到当前分支的分支</span></span><br><span class="line">git <span class="built_in">log</span> $分支名/tag名/远程分支名                <span class="comment">//查看分支log</span></span><br><span class="line">git show-branch                               <span class="comment">//查看分支log</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//远程分支操作    </span></span><br><span class="line">git push --<span class="keyword">delete</span> origin branchName3          <span class="comment">//删除远程分支</span></span><br><span class="line">git branch -m branchName3  branchNewName3     <span class="comment">//重命名本地分支</span></span><br><span class="line">git push origin branchNewName3                <span class="comment">//新命名分支提交到远程</span></span><br><span class="line"><span class="comment">//如遇冲突，查看github里setting里的默认分支是哪个</span></span><br></pre></td></tr></table></figure>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="一、分支冲突"><a href="#一、分支冲突" class="headerlink" title="一、分支冲突"></a>一、分支冲突</h2><ul>
-<li>问题描述：<br>暂存区或工作目录里没有提交的修改可能会和即将切换（检出）的分支产生冲突，导致无法切换分支。</li>
-<li>解决方法：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stashing</span><br><span class="line">commit amending</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="二、HEAD游离"><a href="#二、HEAD游离" class="headerlink" title="二、HEAD游离"></a>二、HEAD游离</h2><ul>
-<li>问题描述：<br> checkout到某个分支（比如branch1）的时候，显示<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">error: Your local changes to the following files would be overwritten by checkout:</span><br><span class="line">&lt;文件列表&gt;</span><br><span class="line">Please commit your changes <span class="keyword">or</span> stash them before you <span class="keyword">switch</span> branches.</span><br><span class="line">Aborting</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>查看分支列表，显示：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(HEAD detached at <span class="number">12819b</span>3)</span><br><span class="line">master</span><br><span class="line">branch1</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>解决方法：<pre><code>1、新建分支temp;
-2、checkout到temp;
-3、将temp的修改commit到库上；
-4、checkout到branch1(之前想切换而切换失败的分支)；
-5、将temp合并到branch1;
-6、删除temp分支。
-</code></pre></li>
-</ul>
+          配置
+配置文件的目录以及对应的级别：
 
-          
+
+
+配置文件名称
+配置文件目录
+对应修改命令
+优先级
+
+
+
+
+版本库
+~.git\config
+git config –local
+1
+
+
+全局
+C:\Users\username\gitconfig
+git config –global
+2     
+
+
+系
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/02/git基础操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
