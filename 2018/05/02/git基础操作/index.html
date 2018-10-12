@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="思考即武器">
 <meta property="og:description" content="配置 配置文件的目录以及对应的级别：    配置文件名称 配置文件目录 对应修改命令 优先级     版本库 ~.git\config git config –local 1   全局 C:\Users\username\gitconfig git config –global 2        系统 \%Git%\mingw64\etc\gitconfig git config –system">
 <meta property="og:locale" content="zh-ch">
-<meta property="og:updated_time" content="2018-10-11T09:02:31.867Z">
+<meta property="og:updated_time" content="2018-10-12T00:54:27.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git基础操作">
 <meta name="twitter:description" content="配置 配置文件的目录以及对应的级别：    配置文件名称 配置文件目录 对应修改命令 优先级     版本库 ~.git\config git config –local 1   全局 C:\Users\username\gitconfig git config –global 2        系统 \%Git%\mingw64\etc\gitconfig git config –system">
@@ -426,6 +426,7 @@
 </ul>
 <p>查看分支列表，显示：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(HEAD detached at <span class="number">12819b</span>3)</span><br><span class="line">master</span><br><span class="line">branch1</span><br></pre></td></tr></table></figure></p>
 <ul>
+<li>解释<br>　　版本控制中一个很重要的问题是文件丢失，head游离可能导致文件丢失。<br>　　一般情况下，head指针指向当前分支的最新版本。如果试图checkout某一次提交（以id1表示），而不是某个分支，便发生head游离，即head指针不再像通常那样指向当前分支的最新版本。这时，当前分支是匿名的，以“head detached at id1”的形式命名。假设此后在匿名分支下作了修改，又由于某种操作（比如分支切换到master）离开了匿名分支，这些修改极有可能永久丢失。<br>　　如无必要，应尽量避免head游离。如必须使head游离，在恢复常态之前一定要做好已修改文件的备份或合并。<br>​</li>
 <li>解决方法：<pre><code>1、新建分支temp;
 2、checkout到temp;
 3、将temp的修改commit到库上；
