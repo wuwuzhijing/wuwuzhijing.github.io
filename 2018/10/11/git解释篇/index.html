@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="git的分区 git的文件状态   序号 文件状态 备注     1 unmerged    2 untracked    3 commited    4 modified    5 staged">
+<meta name="description" content="git的分区 工作区是项目某个版本的所有文件的拷贝。     暂存区是版本库里的一个文件，存储了下一次提交的信息。 版本库包含元数据和对象数据库。 git的文件状态   序号 文件状态 备注     1 commited    2 modified    3 staged    commited状态的文件已安全存储到本地数据库。 modified状态的文件仅仅是在工作区内作了修改。 staged状">
 <meta name="keywords" content="git,原理,优缺点,代码版本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git解释篇">
 <meta property="og:url" content="https://www.degomy.com/2018/10/11/git解释篇/index.html">
 <meta property="og:site_name" content="思考即武器">
-<meta property="og:description" content="git的分区 git的文件状态   序号 文件状态 备注     1 unmerged    2 untracked    3 commited    4 modified    5 staged">
+<meta property="og:description" content="git的分区 工作区是项目某个版本的所有文件的拷贝。     暂存区是版本库里的一个文件，存储了下一次提交的信息。 版本库包含元数据和对象数据库。 git的文件状态   序号 文件状态 备注     1 commited    2 modified    3 staged    commited状态的文件已安全存储到本地数据库。 modified状态的文件仅仅是在工作区内作了修改。 staged状">
 <meta property="og:locale" content="zh-ch">
-<meta property="og:image" content="https://www.degomy.com/2018/10/11/git解释篇/images/git1.png">
-<meta property="og:updated_time" content="2018-10-16T07:44:40.961Z">
+<meta property="og:image" content="https://www.degomy.com/images/git1.png">
+<meta property="og:updated_time" content="2018-10-16T13:51:45.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git解释篇">
-<meta name="twitter:description" content="git的分区 git的文件状态   序号 文件状态 备注     1 unmerged    2 untracked    3 commited    4 modified    5 staged">
-<meta name="twitter:image" content="https://www.degomy.com/2018/10/11/git解释篇/images/git1.png">
+<meta name="twitter:description" content="git的分区 工作区是项目某个版本的所有文件的拷贝。     暂存区是版本库里的一个文件，存储了下一次提交的信息。 版本库包含元数据和对象数据库。 git的文件状态   序号 文件状态 备注     1 commited    2 modified    3 staged    commited状态的文件已安全存储到本地数据库。 modified状态的文件仅仅是在工作区内作了修改。 staged状">
+<meta name="twitter:image" content="https://www.degomy.com/images/git1.png">
 
 
 
@@ -365,7 +365,10 @@
       
 
       
-        <h1 id="git的分区"><a href="#git的分区" class="headerlink" title="git的分区"></a>git的分区</h1><p><img src="images/git1.png" alt=""></p>
+        <h1 id="git的分区"><a href="#git的分区" class="headerlink" title="git的分区"></a>git的分区</h1><p><img src="/images/git1.png" alt=""></p>
+<p>工作区是项目某个版本的所有文件的拷贝。    </p>
+<p>暂存区是版本库里的一个<strong>文件</strong>，存储了下一次提交的信息。</p>
+<p>版本库包含元数据和对象数据库。</p>
 <h1 id="git的文件状态"><a href="#git的文件状态" class="headerlink" title="git的文件状态"></a>git的文件状态</h1><table>
 <thead>
 <tr>
@@ -377,31 +380,23 @@
 <tbody>
 <tr>
 <td>1</td>
-<td>unmerged</td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>untracked</td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
 <td>commited</td>
 <td></td>
 </tr>
 <tr>
-<td>4</td>
+<td>2</td>
 <td>modified</td>
 <td></td>
 </tr>
 <tr>
-<td>5</td>
+<td>3</td>
 <td>staged</td>
-<td></td>
 </tr>
 </tbody>
 </table>
+<p>commited状态的文件已安全存储到本地数据库。</p>
+<p>modified状态的文件仅仅是在工作区内作了修改。</p>
+<p>staged状态的文件是对工作区内修改了的文件做标记，为文件向版本库提交做准备。</p>
 
       
     </div>
