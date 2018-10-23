@@ -1,0 +1,98 @@
+title:
+  Archive: 归档
+  category: 分类
+  tag: 标签
+  schedule: 日程表
+
+author: 作者
+
+menu:
+  home: 首页
+  archives: 归档
+  categories: 分类
+  tags: 标签
+  about: 关于
+  search: 检索
+  schedule: 日程表
+  sitemap: 博客地图
+  commonweal: 公益404
+
+sidebar:
+  overview: 博客概览
+  toc: 文章目录
+
+post:
+  created: 创建于
+  modified: 更新于
+  sticky: 置顶
+  posted: 发表于
+  in: 分类于
+  read_more: 阅读全文
+  untitled: 未命名
+  toc_empty: 此文章不包含 目录
+  visitors: 阅读次数
+  wordcount: 字数统计
+  min2read: 阅读时长
+  totalcount: Site words total count
+  copyright:
+    author: Post author
+    link: Post link
+    license_title: Copyright Notice
+    license_content: 'All articles in this blog are licensed under
+      <a href="%s" rel="external nofollow" target="_blank">%s</a> unless stating additionally.'
+
+page:
+  totally: 共有
+  tags: 标签
+
+footer:
+  powered: "powered by %s "
+  theme: 主题
+
+counter:
+  tag_cloud:
+    zero: 暂无标签
+    one: 目前共计 1 个标签
+    other: "目前共计 %d 个标签"
+
+  categories:
+    zero: 暂无分类
+    one: 目前共计 1 个分类
+    other: "目前共计 %d 个分类"
+
+  archive_posts:
+    zero:  暂无文章
+    one:   共 1 篇文章。
+    other: "共 %d 篇文章。"
+
+state:
+  posts: 文章
+  pages: 页面
+  tags: 标签
+  categories: 分类
+
+search:
+  placeholder: 搜索...
+
+cheers:
+  um: 嗯..
+  ok: OK
+  nice: 好
+  good: 很好
+  great: 非常好
+  excellent: 非常屌
+
+keep_on: 继续努力。
+
+symbol:
+  comma: '， '
+  period: '。 '
+  colon: '：'
+
+reward:
+  donate: 打赏
+  wechatpay: 微信支付
+  alipay: 支付宝
+  #bitcoin: 比特幣
+
+gitmentbutton: 显示 Gitment 评论
