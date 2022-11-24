@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.siyuyusi.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"siyuuysi.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="title: My worksdate: 2020-05-04 20:06:50layout: about">
 <meta property="og:type" content="website">
 <meta property="og:title" content="何来的笔记簿">
-<meta property="og:url" content="https://www.siyuyusi.com/works/index.html">
+<meta property="og:url" content="https://siyuuysi.com/works/index.html">
 <meta property="og:site_name" content="何来的笔记簿">
 <meta property="og:description" content="title: My worksdate: 2020-05-04 20:06:50layout: about">
 <meta property="og:locale" content="zh_CN">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="Degomy">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.siyuyusi.com/works/">
+<link rel="canonical" href="https://siyuuysi.com/works/">
 
 
 <script id="page-configurations">
@@ -220,6 +220,7 @@
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -276,13 +277,6 @@
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">1</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
   </nav>
 </div>
 
@@ -317,6 +311,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -380,7 +394,7 @@
         });
     }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"HDBVXcVRmiBtPj20zZ8seLol-gzGzoHsz","app_key":"fVC0xYCkkoyynpNmsHK2QYCe","security":false};
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"BnPYcGmD2g2oNlcxkGaSUXJO-gzGzoHsz","app_key":"GYVrB0mXennV51MttvcDUY0t","security":false};
     function fetchData(api_server) {
       var Counter = (method, url, data) => {
         return fetch(`${api_server}/1.1${url}`, {
@@ -457,6 +471,26 @@
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '',
+      clientSecret: '',
+      repo        : 'wuwuzhijing.github.io',
+      owner       : '',
+      admin       : [''],
+      id          : '2b5e4bf01fa3adfd9b31edfd166a5003',
+        language: '',
+      distractionFreeMode: 
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
